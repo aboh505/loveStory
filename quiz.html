@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz solo - Wilfried & Valeska</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">W ❤ V</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="rencontre.html">Notre Rencontre</a></li>
+                <li><a href="moments.html">Moments Forts</a></li>
+                <li><a href="album.html">Album Photo</a></li>
+               
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <div class="page-header fade-in">
+            <h1 class="page-title">Quiz d'Amour 💖</h1>
+            <p class="page-subtitle">Testez vos connaissances sur notre histoire !</p>
+        </div>
+
+        <section class="quiz-section">
+            <div id="quizContainer" class="quiz-container">
+                <div id="startScreen" class="quiz-screen active">
+                    <div class="quiz-intro fade-in">
+                        <div class="quiz-icon">❤️</div>
+                        <h2>Prêt(e) à tester ?</h2>
+                        <p>Répondez à ces questions sur notre histoire pour voir à quel point vous vous connaissez !</p>
+                        <button id="startQuiz" class="quiz-btn">Commencer le Quiz ✨</button>
+                    </div>
+                </div>
+
+                <div id="questionScreen" class="quiz-screen">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <p class="progress-text">Question <span id="currentQuestion">1</span> sur <span id="totalQuestions">10</span></p>
+                    </div>
+
+                    <div class="question-container">
+                        <h3 id="questionText" class="question-text"></h3>
+                        <div id="answersContainer" class="answers-container"></div>
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button id="nextBtn" class="quiz-btn" style="display: none;">Question Suivante →</button>
+                    </div>
+                </div>
+
+                <div id="resultScreen" class="quiz-screen">
+                    <div class="quiz-result fade-in">
+                        <div id="resultIcon" class="result-icon"></div>
+                        <h2 id="resultTitle"></h2>
+                        <p class="result-score">Score: <span id="finalScore"></span> / <span id="totalScore"></span></p>
+                        <p id="resultMessage" class="result-message"></p>
+                        <div class="result-actions">
+                            <button id="retryQuiz" class="quiz-btn">Recommencer 🔄</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="navigation-buttons">
+            <a href="album.html" class="nav-btn">← Album Photo</a>
+            <a href="index.html" class="nav-btn">Accueil →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Fait avec❤️pour Wilfried & Valeska</p>
+        <p class="footer-date">&copy; 2021 - 2025 et pour toujours 💕</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="quiz.js"></script>
+    <script src="album-redirect.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

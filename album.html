@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Photo - Wilfried & Valeska</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">W ❤ V</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="rencontre.html">Notre Rencontre</a></li>
+                <li><a href="moments.html">Moments Forts</a></li>
+                <li><a href="album.html" class="active">Album Photo</a></li>
+                <li><a href="#" id="logoutBtn" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <div class="page-header fade-in">
+            <h1 class="page-title">Notre Album Photo 📸</h1>
+            <p class="page-subtitle">Nos plus beaux souvenirs capturés</p>
+            <p class="user-welcome">Bienvenue, <span id="userName"></span> 💕</p>
+        </div>
+
+        <section class="album-section">
+            <div class="album-filters">
+                <button class="filter-btn active" data-filter="all">Tous </button>
+                <button class="filter-btn" data-filter="couple">Couple 💑</button>
+                <button class="filter-btn" data-filter="special">Moments Spéciaux </button>
+            </div>
+
+            <div class="gallery-grid-small">
+                <!-- Photo 1 -->
+                <div class="gallery-item-small fade-in-delay-1" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo1')" style="cursor: pointer;">
+                        <img src="images/7.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Aventures💕</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="gallery-item-small fade-in-delay-2" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo2')" style="cursor: pointer;">
+                        <img src="images/20.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Complicité😊</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="gallery-item-small fade-in-delay-3" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo3')" style="cursor: pointer;">
+                        <img src="images/16.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Tendresse🌍</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="gallery-item-small fade-in-delay-4" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo4')" style="cursor: pointer;">
+                        <img src="images/6.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Célébration🎉</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="gallery-item-small fade-in-delay-5" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo5')" style="cursor: pointer;">
+                        <img src="images/14.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Moments Magiques</h3>
+                            <p>Cliquer pour voir 🤗</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="gallery-item-small fade-in-delay-6" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo6')" style="cursor: pointer;">
+                        <img src="images/4.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Notre Amour⛰️</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="gallery-item-small fade-in-delay-7" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo7')" style="cursor: pointer;">
+                        <img src="images/22.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Ensemble🎂</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="gallery-item-small fade-in-delay-8" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo8')" style="cursor: pointer;">
+                        <img src="images/19.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Bonheur✨</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="gallery-item-small fade-in-delay-9" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo9')" style="cursor: pointer;">
+                        <img src="images/18.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Sourires💖</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 10 -->
+                <div class="gallery-item-small fade-in-delay-10" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo10')" style="cursor: pointer;">
+                        <img src="images/17.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Douceur🌸</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 11 -->
+                <div class="gallery-item-small fade-in-delay-11" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo11')" style="cursor: pointer;">
+                        <img src="images/23.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Passion🔥</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 12 -->
+                <div class="gallery-item-small fade-in-delay-12" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo12')" style="cursor: pointer;">
+                        <img src="images/24.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Éternité💫</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 13 -->
+                <div class="gallery-item-small fade-in-delay-13" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo13')" style="cursor: pointer;">
+                        <img src="images/21.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Rêves🌙</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 14 -->
+                <div class="gallery-item-small fade-in-delay-14" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo14')" style="cursor: pointer;">
+                        <img src="images/13.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Connexion🌟</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 15 -->
+                <div class="gallery-item-small fade-in-delay-15" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo15')" style="cursor: pointer;">
+                        <img src="images/26.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Harmonie🎵</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 16 -->
+                <div class="gallery-item-small fade-in-delay-16" data-category="special">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo16')" style="cursor: pointer;">
+                        <img src="images/27.jpg" alt="Moment spécial" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Fusion💞</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 17 -->
+                <div class="gallery-item-small fade-in-delay-17" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo17')" style="cursor: pointer;">
+                        <img src="images/15.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Unité🤝</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 18 -->
+                <div class="gallery-item-small fade-in-delay-18" data-category="couple">
+                    <div class="gallery-card-small" onclick="openPhotoModal('photo18')" style="cursor: pointer;">
+                        <img src="images/11.jpg" alt="Photo couple" class="gallery-img-small">
+                        <div class="gallery-overlay-small">
+                            <h3>Promesse💍</h3>
+                            <p>Cliquer pour voir </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Photo avec Commentaires -->
+        <div id="photoModal" class="photo-modal">
+            <div class="photo-modal-content">
+                <span class="photo-modal-close" onclick="closePhotoModal()">&times;</span>
+                
+                <div class="photo-modal-body">
+                    <div class="photo-modal-image">
+                        <img id="modalImage" src="" alt="Photo">
+                    </div>
+                    
+                    <div class="photo-modal-info">
+                        <h2 id="modalTitle" class="modal-photo-title"></h2>
+                        <p id="modalDate" class="modal-photo-date"></p>
+                        <p id="modalDescription" class="modal-photo-description"></p>
+                        <div id="modalTags" class="modal-photo-tags"></div>
+                        
+                        <!-- Section Commentaires -->
+                        <div class="modal-comments-section">
+                            <h3 class="modal-comments-title">💬 Commentaires</h3>
+                            
+                            <!-- Bouton pour afficher/masquer les commentaires -->
+                            <button id="toggleCommentsBtn" class="comments-toggle-btn" onclick="toggleComments()">
+                                <span class="eye-icon" id="eyeIcon">👁️</span>
+                                <span id="toggleText">Afficher les commentaires</span>
+                            </button>
+                            
+                            <!-- Contenu des commentaires (caché par défaut) -->
+                            <div id="commentsContent" class="comments-content">
+                            <!-- Formulaire de commentaire -->
+                            <div class="modal-comment-form-container">
+                                <form id="modalCommentForm" class="modal-comment-form">
+                                    <textarea 
+                                        id="modalCommentText" 
+                                        placeholder="Partagez vos pensées... "
+                                        rows="3"
+                                        required
+                                    ></textarea>
+                                    <button type="submit" class="modal-comment-submit-btn">Publier </button>
+                                </form>
+                            </div>
+
+                            <!-- Liste des commentaires -->
+                            <div id="modalCommentsList" class="modal-comments-list">
+                                <!-- Les commentaires seront ajoutés ici -->
+                            </div>
+
+                            <div id="modalNoComments" class="modal-no-comments">
+                                Aucun commentaire. Soyez le premier ! 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+        <div class="navigation-buttons">
+            <a href="moments.html" class="nav-btn">← Moments Forts</a>
+            <a href="quiz.html" class="nav-btn">Quiz solo →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Fait avec❤️pour Wilfried & Valeska</p>
+        <p class="footer-date">2021 - 2025 et pour toujours 💕</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="album.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

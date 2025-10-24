@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail Photo - Wilfried & Valeska</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">W ❤ V</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="rencontre.html">Notre Rencontre</a></li>
+                <li><a href="moments.html">Moments Forts</a></li>
+                <li><a href="album-new.html" class="active">Album Photo</a></li>
+                <li><a href="quiz.html">Quiz d'Amour</a></li>
+                <li><a href="#" id="logoutBtn" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <div class="photo-detail-container fade-in">
+            <a href="album-new.html" class="back-link">← Retour à l'album</a>
+            
+            <div class="photo-detail-content">
+                <div class="photo-detail-image">
+                    <img id="detailImage" src="" alt="Photo">
+                </div>
+                
+                <div class="photo-detail-info">
+                    <h1 id="photoTitle" class="photo-title"></h1>
+                    <p id="photoDate" class="photo-date"></p>
+                    <p id="photoDescription" class="photo-description"></p>
+                    <div class="photo-tags" id="photoTags"></div>
+                </div>
+            </div>
+
+            <!-- Section des commentaires -->
+            <div class="comments-section">
+                <h2 class="comments-title">💬 Commentaires</h2>
+                
+                <!-- Formulaire d'ajout de commentaire -->
+                <div class="comment-form-container">
+                    <form id="commentForm" class="comment-form">
+                        <textarea 
+                            id="commentText" 
+                            placeholder="Partagez vos pensées sur cette photo... 💕"
+                            rows="3"
+                            required
+                        ></textarea>
+                        <button type="submit" class="comment-submit-btn">Publier 💖</button>
+                    </form>
+                </div>
+
+                <!-- Liste des commentaires -->
+                <div id="commentsList" class="comments-list">
+                    <!-- Les commentaires seront ajoutés ici dynamiquement -->
+                </div>
+
+                <div id="noComments" class="no-comments">
+                    Aucun commentaire pour le moment. Soyez le premier à commenter ! 💕
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Fait avec ❤ pour Wilfried & Valeska</p>
+        <p class="footer-date">2021 - 2025 et pour toujours 💕</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="photo-detail.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Wilfried & Valeska</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">W ❤ V</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="rencontre.html">Notre Rencontre</a></li>
+                <li><a href="moments.html">Moments Forts</a></li>
+              
+                <li><a href="quiz.html">Quiz d'Amour</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <div class="auth-container">
+            <div class="auth-box fade-in">
+                <div class="auth-header">
+                    <h1 class="auth-title">💕 Bienvenue 💕</h1>
+                </div>
+
+                <!-- Formulaire de connexion -->
+                <div id="loginForm" class="auth-form active">
+                    <h2>Connexion</h2>
+                    <form id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required placeholder="votre@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Mot de passe</label>
+                            <input type="password" id="loginPassword" required placeholder="••••••••">
+                        </div>
+                        <div id="loginError" class="error-message"></div>
+                        <button type="submit" class="auth-btn">Se connecter</button>
+                    </form>
+                    <p class="auth-switch">
+                        Pas encore de compte ? 
+                        <a href="#" id="showRegister">S'inscrire</a>
+                    </p>
+                </div>
+
+                <!-- Formulaire d'inscription -->
+                <div id="registerForm" class="auth-form">
+                    <!-- <h2>Inscription</h2> -->
+                    <form id="registerFormElement">
+                        <div class="form-group">
+                            <label for="registerName">Nom </label>
+                            <input type="text" id="registerName" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" required placeholder="votre@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Mot de passe</label>
+                            <input type="password" id="registerPassword" required placeholder="••••••••" minlength="6">
+                            <small>Minimum 6 caractères</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirmer le mot de passe</label>
+                            <input type="password" id="registerConfirmPassword" required placeholder="••••••••">
+                        </div>
+                        <div id="registerError" class="error-message"></div>
+                        <div id="registerSuccess" class="success-message"></div>
+                        <button type="submit" class="auth-btn">S'inscrire </button>
+                    </form>
+                    <p class="auth-switch">
+                        Déjà un compte ? 
+                        <a href="#" id="showLogin">Se connecter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Fait avec❤️ pour Wilfried & Valeska</p>
+        <p class="footer-date">2021 - 2025 et pour toujours 💕</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
