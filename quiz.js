@@ -75,7 +75,7 @@ const quizQuestions = [
         answers: [
             "Des fleurs",
             "Un bijou",
-            "Passer les journees ensemble",
+            "Passer les journées ensemble",
             "Un parfum"
         ],
         correct: 2
@@ -99,12 +99,78 @@ const quizQuestions = [
             "25 juin et 30 novembre 2003"
         ],
         correct: 1
+    },
+    {
+        question: "Quelle est notre plus grande habitude de couple ?",
+        answers: [
+            "S'envoyer des messages le matin",
+            "Se dire 'je t'aime' chaque soir",
+            "Faire des appels vidéo"
+        ],
+        correct: 2
+    },
+    {
+        question: "Quelle est la chose qu'elle aime le plus chez moi ?",
+        answers: [
+            "Mon sourire",
+            "Ma gentillesse",
+            "Mon humour"
+        ],
+        correct: 1
+    },
+    {
+        question: "Qui a dit 'Je t'aime' en premier ?",
+        answers: [
+            "Moi",
+            "Elle",
+            "En même temps"
+        ],
+        correct: 0
+    },
+    {
+        question: "Où avons-nous passé notre première sortie ensemble ?",
+        answers: [
+            "Au cinéma",
+            "À l'église",
+            "Dans un restaurant",
+            "Dans un parc"
+        ],
+        correct: 1
+    },
+    {
+        question: "Quelle est la première photo qu'on a prise ensemble ?",
+        answers: [
+            "Devant un restaurant",
+            "À une fête",
+            "En selfie"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quel est le cadeau qu'elle a préféré de ma part ?",
+        answers: [
+            "Un pack love",
+            "Une peluche",
+            "Des fleurs",
+            "Une lettre d'amour"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quelle est notre activité préférée à deux ?",
+        answers: [
+            "Regarder des films",
+            "Cuisiner ensemble",
+            "Se promener main dans la main"
+        ],
+        correct: 2
     }
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
 let userAnswers = [];
+let currentUser = null;
 
 // Éléments DOM
 const startScreen = document.getElementById('startScreen');
@@ -126,8 +192,82 @@ const finalScoreEl = document.getElementById('finalScore');
 const totalScoreEl = document.getElementById('totalScore');
 const resultMessage = document.getElementById('resultMessage');
 
+// Fonctions d'authentification
+function isLoggedIn() {
+    return localStorage.getItem('currentUser') !== null;
+}
+
+function getCurrentUser() {
+    const userStr = localStorage.getItem('currentUser');
+    return userStr ? JSON.parse(userStr) : null;
+}
+
+// Fonctions de gestion du classement
+function saveScore(userName, score, totalQuestions) {
+    let leaderboard = JSON.parse(localStorage.getItem('quizLeaderboard') || '[]');
+    
+    const newEntry = {
+        name: userName,
+        score: score,
+        total: totalQuestions,
+        percentage: Math.round((score / totalQuestions) * 100),
+        date: new Date().toISOString()
+    };
+    
+    leaderboard.push(newEntry);
+    
+    // Trier par score décroissant
+    leaderboard.sort((a, b) => b.percentage - a.percentage);
+    
+    // Garder seulement les 10 meilleurs scores
+    leaderboard = leaderboard.slice(0, 10);
+    
+    localStorage.setItem('quizLeaderboard', JSON.stringify(leaderboard));
+}
+
+function displayLeaderboard() {
+    const leaderboard = JSON.parse(localStorage.getItem('quizLeaderboard') || '[]');
+    const leaderboardContainer = document.getElementById('leaderboard');
+    
+    if (!leaderboardContainer) return;
+    
+    if (leaderboard.length === 0) {
+        leaderboardContainer.innerHTML = '<p class="no-scores">Aucun score enregistré pour le moment. Soyez le premier ! 🏆</p>';
+        return;
+    }
+    
+    let html = '<h3 class="leaderboard-title">🏆 Classement des Meilleurs Scores</h3>';
+    html += '<div class="leaderboard-list">';
+    
+    leaderboard.forEach((entry, index) => {
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}.`;
+        const date = new Date(entry.date);
+        const formattedDate = date.toLocaleDateString('fr-FR', { 
+            day: 'numeric', 
+            month: 'short',
+            year: 'numeric'
+        });
+        
+        html += `
+            <div class="leaderboard-item ${index < 3 ? 'top-three' : ''}">
+                <span class="leaderboard-rank">${medal}</span>
+                <div class="leaderboard-info">
+                    <span class="leaderboard-name">${entry.name}</span>
+                    <span class="leaderboard-date">${formattedDate}</span>
+                </div>
+                <span class="leaderboard-score">${entry.score}/${entry.total} (${entry.percentage}%)</span>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    leaderboardContainer.innerHTML = html;
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
+    currentUser = getCurrentUser();
+    
     if (totalQuestionsEl) {
         totalQuestionsEl.textContent = quizQuestions.length;
     }
@@ -143,6 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (retryBtn) {
         retryBtn.addEventListener('click', resetQuiz);
     }
+    
+    // Afficher le classement au chargement
+    displayLeaderboard();
 });
 
 // Démarrer le quiz
@@ -221,6 +364,12 @@ function showResults() {
     totalScoreEl.textContent = quizQuestions.length;
     
     const percentage = (score / quizQuestions.length) * 100;
+    
+    // Sauvegarder le score si l'utilisateur est connecté
+    if (currentUser) {
+        saveScore(currentUser.name, score, quizQuestions.length);
+        displayLeaderboard();
+    }
     
     if (percentage === 100) {
         resultIcon.textContent = '💖';
